@@ -1,4 +1,14 @@
-# Define the mood_response function
+# text_utils.py
+class text_utils:
+    @staticmethod
+    def reverse_string(s):
+        return s[::-1]
+
+    @staticmethod
+    def capitalize_string(s):
+        return s.capitalize()
+
+# mood_responses.py
 def mood_response(mood):
     if mood.lower() == "happy":
         return "That's great to hear! Keep smiling!"
@@ -9,26 +19,15 @@ def mood_response(mood):
     else:
         return "Thank you for sharing your mood!"
 
-# Ask the user for their mood
-mood = input("How are you feeling today? ")
+# main.py
+import text_utils
+import mood_responses
 
-# Call the mood_response function and print the result
-print(mood_response(mood))
-
-# Simulating text_utils.py within the same file
-class text_utils:
-    @staticmethod
-    def reverse_string(s):
-        return s[::-1]
-
-    @staticmethod
-    def capitalize_string(s):
-        return s.capitalize()
-
-# Utilize the reverse_string function from text_utils
 reversed_text = text_utils.reverse_string("hello world")
-print(reversed_text)  # Output: "dlrow olleh"
+print(reversed_text)
 
-# Utilize the capitalize_string function from text_utils
 capitalized_text = text_utils.capitalize_string("hello world")
-print(capitalized_text)  # Output: "Hello world"
+print(capitalized_text)
+
+mood = input("How are you feeling today? ")
+print(mood_responses.mood_response(mood))
